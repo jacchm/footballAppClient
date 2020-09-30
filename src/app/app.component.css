@@ -1,0 +1,11 @@
+/*-- iPhone X Remove Gutters --*/
+html {
+  /* for non rectangular displays (iphones) */
+  padding: env(safe-area-inset);
+}
+html, body {
+  /* any horizontal scrolling, content is not visible outside the window */
+  overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
+  color: yellow;
+}
