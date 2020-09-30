@@ -1,5 +1,6 @@
+/* -- Navbar settings -- */
 .navbar {
-  padding: .7rem 1rem;
+  padding: .2rem 0 .2rem .5rem;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: .1rem;
@@ -7,7 +8,7 @@
   background-color: #1ba605;
 }
 .navbar-brand img {
-  height: 20px;
+  height: 3rem;
 }
 .navbar-nav li {
   padding-right: .8rem;
@@ -20,13 +21,25 @@
 .navbar-nav .nav-link:hover{
   color: #006600;
 }
-
-
-.navbar-toggler-icon {
+/* -- toggler icon settings -- */
+.custom-toggler-icon fa-icon {
   color: white;
+  font-size: 1.5rem;
+  padding-right: .7rem;
+}
+.custom-toggler-icon fa-icon:focus,
+.custom-toggler-icon fa-icon:focus {
+  outline: 0;
+  /* compatibility reasons - remove inherent styling from element */
+  -webkit-appearance: none;
+  /* good experience - just in case */
+  box-shadow: none;
+}
+/* -- dropdown menu settings --*/
+.dropdown-menu.show {
+  background-color: #1ba605;
+  border: 2px solid #189504;
+}
 
-}
-.navbar-toggler {
-  border-color: white;
-  color: white;
-}
+
+

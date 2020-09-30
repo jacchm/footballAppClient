@@ -5,14 +5,16 @@
     <!-- Hamburger button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarResponsive">
-      <span class="navbar-toggler-icon"></span>
+      <span class="custom-toggler-icon"><fa-icon class="burgerIcon" [icon]="['fas', 'bars']">
+      </fa-icon></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
+<!--      <fa-icon [icon]="['far', 'futbol']" style="color: white; font-size: 1rem"></fa-icon>-->
       <ul class="navbar-nav ml-auto">
 
         <li class="nav-item">
-          <a href="#" class="nav-link">Home</a> <!-- Welcome to football app -->
+          <a href="" class="nav-link">Home</a> <!-- Welcome to football app -->
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -20,29 +22,22 @@
             Top&nbsp;5&nbsp;Leagues
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Premier&nbsp;League</a>
-            <a class="dropdown-item" href="#">Bundesliga</a>
-            <a class="dropdown-item" href="#">La&nbsp;Liga</a>
-            <a class="dropdown-item" href="#">Serie&nbsp;A</a>
-            <a class="dropdown-item" href="#">League&nbsp;1</a>
+            <a class="dropdown-item" href="/top5-league" class="nav-link">Premier&nbsp;League</a>
+            <a class="dropdown-item" href="/top5-league" class="nav-link">Bundesliga</a>
+            <a class="dropdown-item" href="/top5-league" class="nav-link">La&nbsp;Liga</a>
+            <a class="dropdown-item" href="/top5-league" class="nav-link">Serie&nbsp;A</a>
+            <a class="dropdown-item" href="/top5-league" class="nav-link">League&nbsp;1</a>
           </div>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">Champions&nbsp;League</a>
+          <a href="/champions-league" class="nav-link" routerLinkActive="active">Champions&nbsp;League</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">Europa&nbsp;League</a>
+          <a href="/europa-league" class="nav-link" routerLinkActive="active">Europa&nbsp;League</a>
         </li>
 
       </ul>
     </div> <!-- End Collapse -->
-
-
-
-
-
-
-
 
   </div> <!-- End Container Fluid -->
 
