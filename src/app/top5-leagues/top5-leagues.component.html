@@ -1,0 +1,38 @@
+<div class="container text-uppercase content-justify-center">
+
+  <!-- If no data in standingInput -->
+  <h3 class="mt-5" *ngIf="standingInput == null">There is no table for this particular League.</h3>
+
+  <div class="container pt-5">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Team</th>
+          <th scope="col">Games Played</th>
+          <th scope="col">Points</th>
+          <th scope="col">Won</th>
+          <th scope="col">Draw</th>
+          <th scope="col">Lost</th>
+          <th scope="col">Goals Scored</th>
+          <th scope="col">Goals Conceded</th>
+          <th scope="col">Goals Ratio</th>
+        </tr>
+      </thead>
+      <tbody *ngFor = "let tableInput of standingInput.standings[0].table">
+        <tr>
+          <th scope="row">{{tableInput.position}}</th>
+          <td><img src="{{tableInput.team.crestUrl}}" style="width: 30px;">{{tableInput.team.name}}</td>
+          <td>{{tableInput.playedGames}}</td>
+          <td>{{tableInput.points}}</td>
+          <td>{{tableInput.won}}</td>
+          <td>{{tableInput.draw}}</td>
+          <td>{{tableInput.lost}}</td>
+          <td>{{tableInput.goalsFor}}</td>
+          <td>{{tableInput.goalsAgainst}}</td>
+          <td>{{tableInput.goalDifference}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
