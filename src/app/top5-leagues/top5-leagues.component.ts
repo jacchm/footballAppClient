@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {StandingInput} from '../model/StandingInput';
+import {LeagueTablePosition} from '../model/LeagueTablePosition';
 
 @Component({
   selector: 'app-top5-leagues',
@@ -10,25 +10,47 @@ import {StandingInput} from '../model/StandingInput';
 })
 export class Top5LeaguesComponent implements OnInit {
 
-  standingInput: StandingInput;
+  leagueTablePositionList = new Array<LeagueTablePosition>();
+
+  message = '';
+  backgroundImageURL: string;
+
+  activeCompetitionNo: number;
 
   constructor(private dataService: DataService,
               private  router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.loadData();
+    this.processUrlParams();
   }
 
-  loadData(): void {
-    this.dataService.getStandingInput().subscribe(
-      next => {
-        this.standingInput = next;
-        console.log(this.standingInput);
+  processUrlParams(): void {
+    this.route.queryParams.subscribe(
+      (params) => {
+        this.activeCompetitionNo = params['competitionId'];
+        this.backgroundImageURL = 'url(../assets/img/' + this.activeCompetitionNo + '_motive.jpg';
+        this.loadData('total');
+      });
+  }
+
+  loadData(type: string): void {
+    this.message = '';
+    console.log(this.activeCompetitionNo + ' type: ' + type);
+    this.dataService.getLeagueTableResultsOfType(this.activeCompetitionNo, type).subscribe(
+      input => {
+        this.leagueTablePositionList = input;
+        if (this.leagueTablePositionList.length === 0) {
+          this.message = 'There is no data for this particular league.';
+        }
       },
-      error => console.log('Something went wrong')
+      error => {
+        this.message = 'Error connecting to the server. Try again later.';
+        this.leagueTablePositionList = [];
+      }
     );
   }
+
 
 }

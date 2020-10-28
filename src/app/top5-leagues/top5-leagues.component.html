@@ -1,38 +1,74 @@
-<div class="container text-uppercase content-justify-center">
+<div class="container-fluid text-uppercase content-justify-center dark">
 
-  <!-- If no data in standingInput -->
-  <h3 class="mt-5" *ngIf="standingInput == null">There is no table for this particular League.</h3>
+  <div class="fixed">
+    <!-- If no Results -->
+    <h3 class="m-5" style="color: white" *ngIf="leagueTablePositionList.length === 0">{{message}}</h3>
 
-  <div class="container pt-5">
-    <table class="table table-hover table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Team</th>
-          <th scope="col">Games Played</th>
-          <th scope="col">Points</th>
-          <th scope="col">Won</th>
-          <th scope="col">Draw</th>
-          <th scope="col">Lost</th>
-          <th scope="col">Goals Scored</th>
-          <th scope="col">Goals Conceded</th>
-          <th scope="col">Goals Ratio</th>
-        </tr>
-      </thead>
-      <tbody *ngFor = "let tableInput of standingInput.standings[0].table">
-        <tr>
-          <th scope="row">{{tableInput.position}}</th>
-          <td><img src="{{tableInput.team.crestUrl}}" style="width: 30px;">{{tableInput.team.name}}</td>
-          <td>{{tableInput.playedGames}}</td>
-          <td>{{tableInput.points}}</td>
-          <td>{{tableInput.won}}</td>
-          <td>{{tableInput.draw}}</td>
-          <td>{{tableInput.lost}}</td>
-          <td>{{tableInput.goalsFor}}</td>
-          <td>{{tableInput.goalsAgainst}}</td>
-          <td>{{tableInput.goalDifference}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <!-- If no Results -->
+    <div class="container" *ngIf="leagueTablePositionList.length > 0">
+      <div class="py-1 text-right">
+        <row>
+        <button type="button" class="btn btn-light mr-1" (click)="loadData('total')">TOTAL</button>
+        <button type="button" class="btn btn-light mr-1" (click)="loadData('home')">HOME</button>
+        <button type="button" class="btn btn-light" (click)="loadData('away')">AWAY</button>
+        </row>
+      </div>
+      <div>
+        <table class="table table-hover"> <!-- table-bordered -->
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" colspan="2">Team</th>
+            <th scope="col">Games Played</th>
+            <th scope="col">Points</th>
+            <th scope="col">Won</th>
+            <th scope="col">Draw</th>
+            <th scope="col">Lost</th>
+            <th scope="col">Goals Scored</th>
+            <th scope="col">Goals Conceded</th>
+            <th scope="col">Goals Ratio</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let tableRow of leagueTablePositionList">
+          <tr>
+            <th scope="row">{{tableRow.position}}</th>
+            <td style="width: 80px"><img src="{{tableRow.team.crestUrl}}" class=""></td>
+            <td style="text-align: left">{{tableRow.team.name}}</td>
+            <td>{{tableRow.playedGames}}</td>
+            <td class="font-weight-bold">{{tableRow.points}}</td>
+            <td>{{tableRow.won}}</td>
+            <td>{{tableRow.draw}}</td>
+            <td>{{tableRow.lost}}</td>
+            <td>{{tableRow.goalsFor}}</td>
+            <td>{{tableRow.goalsAgainst}}</td>
+            <td>{{tableRow.goalDifference}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+<!--    <div>
+      <h1> Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
+        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
+        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
+        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
+        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
+        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
+        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
+        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
+        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
+        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
+      </h1>
+
+    </div>-->
+
+
+  </div> <!-- End Fixed -->
+
 </div>
+
+<div class="fixed-wrap">
+  <div class="fixed-dark" [style.background-image]="backgroundImageURL"></div>
+</div> <!-- End Fixed Wrap -->

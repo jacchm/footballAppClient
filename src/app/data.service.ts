@@ -1,29 +1,45 @@
 import {Injectable} from '@angular/core';
-import {Area} from './model/Area';
-import {Team} from './model/Team';
-import {TableInput} from './model/TableInput';
-import {Standing} from './model/Standing';
-import {Competition} from './model/Competition';
-import {Season} from './model/Season';
-import {StandingInput} from './model/StandingInput';
-import {Observable, of} from 'rxjs';
+import {LeagueTablePosition} from './model/LeagueTablePosition';
+import {Observable} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from '../environments/environment';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  // private areas: Array<Area>;
-  // private teams: Array<Team>;
-  // private tableInputs: Array<TableInput>;
-  standingInput: StandingInput;
 
-  getStandingInput(): Observable<StandingInput> {
-    return of(this.standingInput);
+/*  getLeagueAllTableResults(competitionId: number): Observable<Array<LeagueTablePosition>>{
+    return this.http.get<Array<LeagueTablePosition>>(environment.restUrl + '/results/getLeagueResults/' + competitionId)
+      .pipe(
+        map(data => {
+          const leagueTablePositionList = new Array<LeagueTablePosition>();
+          for (const leagueTablePosition of data){
+            leagueTablePositionList.push(LeagueTablePosition.fromHttp(leagueTablePosition));
+          }
+          return leagueTablePositionList;
+        })
+      );
+  }*/
+
+  getLeagueTableResultsOfType(competitionId: number, type: string): Observable<Array<LeagueTablePosition>>{
+    return this.http.get<Array<LeagueTablePosition>>('/api/results/league-results?league_id=' + competitionId
+      + '&type=' + type)
+      .pipe(
+        map(data => {
+          const leagueTablePositionList = new Array<LeagueTablePosition>();
+          for (const leagueTablePosition of data){
+            leagueTablePositionList.push(LeagueTablePosition.fromHttp(leagueTablePosition));
+          }
+          return leagueTablePositionList;
+        })
+      );
   }
 
-  constructor() {
-
-    const competitionEng = new Competition();
+  constructor(private http: HttpClient) {
+    console.log('Connecting to: ' + environment.restUrl);
+/*    const competitionEng = new Competition();
     competitionEng.id = 2021;
 
     const area1 = new Area();
@@ -51,7 +67,7 @@ export class DataService {
     standingEng.group = null;
 
     // 1st team
-    const tableInputEng1 = new TableInput();
+    const tableInputEng1 = new LeagueTablePosition();
     tableInputEng1.position = 1;
 
     const teamEng1 = new Team();
@@ -71,7 +87,7 @@ export class DataService {
     tableInputEng1.goalDifference = 8;
 
     // 2nd team
-    const tableInputEng2 = new TableInput();
+    const tableInputEng2 = new LeagueTablePosition();
     tableInputEng2.position = 2;
 
     const teamEng2 = new Team();
@@ -91,7 +107,7 @@ export class DataService {
     tableInputEng2.goalDifference = 5;
 
     // 3rd team
-    const tableInputEng3 = new TableInput();
+    const tableInputEng3 = new LeagueTablePosition();
     tableInputEng3.position = 3;
 
     const teamEng3 = new Team();
@@ -110,7 +126,7 @@ export class DataService {
     tableInputEng3.goalsAgainst = 3;
     tableInputEng3.goalDifference = 5;
 
-    const tableInputEng4 = new TableInput();
+    const tableInputEng4 = new LeagueTablePosition();
     tableInputEng4.position = 4;
 
     const teamEng4 = new Team();
@@ -131,7 +147,7 @@ export class DataService {
     tableInputEng4.goalDifference = 4;
 
     // 5th team
-    const tableInputEng5 = new TableInput();
+    const tableInputEng5 = new LeagueTablePosition();
     tableInputEng5.position = 5;
 
     const teamEng5 = new Team();
@@ -151,14 +167,14 @@ export class DataService {
     tableInputEng5.goalDifference = 4;
 
     // standing
-    standingEng.table = new Array<TableInput>();
+    standingEng.table = new Array<LeagueTablePosition>();
     standingEng.table.push(tableInputEng1, tableInputEng2, tableInputEng3, tableInputEng4, tableInputEng5);
 
     this.standingInput = new StandingInput();
     this.standingInput.competition = competitionEng;
     this.standingInput.season = seasonEng;
     this.standingInput.standings = new Array<Standing>();
-    this.standingInput.standings.push(standingEng);
+    this.standingInput.standings.push(standingEng);*/
 
   }
 }

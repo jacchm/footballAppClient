@@ -11,6 +11,8 @@ import {fas} from '@fortawesome/free-solid-svg-icons';
 import { ChampionsLeagueComponent } from './champions-league/champions-league.component';
 import { EuropaLeagueComponent } from './europa-league/europa-league.component';
 import { Top5LeaguesComponent } from './top5-leagues/top5-leagues.component';
+import {HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { Top5LeaguesComponent } from './top5-leagues/top5-leagues.component';
     PageNotFoundComponent,
     ChampionsLeagueComponent,
     EuropaLeagueComponent,
-    Top5LeaguesComponent
+    Top5LeaguesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg fixed-top solid">
+<nav class="navbar navbar-expand-lg fixed-top solid offset">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="../../assets/img/logo.png" alt=""></a>
+    <a class="navbar-brand" href="/home"><img src="../../assets/img/logo.png" alt=""></a>
 
     <!-- Hamburger button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -14,7 +14,7 @@
       <ul class="navbar-nav ml-auto">
 
         <li class="nav-item">
-          <a href="" class="nav-link">Home</a> <!-- Welcome to football app -->
+          <a href="/home" class="nav-link">Home</a> <!-- Welcome to football app -->
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -22,11 +22,11 @@
             Top&nbsp;5&nbsp;Leagues
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/top5-league" class="nav-link">Premier&nbsp;League</a>
-            <a class="dropdown-item" href="/top5-league" class="nav-link">Bundesliga</a>
-            <a class="dropdown-item" href="/top5-league" class="nav-link">La&nbsp;Liga</a>
-            <a class="dropdown-item" href="/top5-league" class="nav-link">Serie&nbsp;A</a>
-            <a class="dropdown-item" href="/top5-league" class="nav-link">League&nbsp;1</a>
+            <a class="dropdown-item" (click)="navigateToTop5Leagues(2021)">Premier&nbsp;League</a>
+            <a class="dropdown-item" (click)="navigateToTop5Leagues(2002)">Bundesliga</a>
+            <a class="dropdown-item" (click)="navigateToTop5Leagues(2014)">La&nbsp;Liga</a>
+            <a class="dropdown-item" (click)="navigateToTop5Leagues(2019)">Serie&nbsp;A</a>
+            <a class="dropdown-item" (click)="navigateToTop5Leagues(2015)">League&nbsp;1</a>
           </div>
         </li>
         <li class="nav-item">

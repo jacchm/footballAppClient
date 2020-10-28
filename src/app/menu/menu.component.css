@@ -40,6 +40,14 @@
   background-color: #1ba605;
   border: 2px solid #189504;
 }
+.dropdown-menu a {
+  color: white;
+}
+.dropdown-menu a:hover {
+  color: #006600;
+  cursor: pointer;
+  background-color: #48b736;
+}
 
 
 
