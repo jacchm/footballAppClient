@@ -1,0 +1,42 @@
+.fixed {
+  position: relative;
+  width: 100%;
+  /* display: table; */
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto,0); /*(right, bot, top, left)*/
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /* fill all corners on each device */
+  top: 0;
+  left: 0;
+  z-index: -9999;
+}
+.fixed-dark {
+  background-image: url("../../assets/img/home_motive.jpg");
+  /* position: relative; -- to scroll the image */
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-size: cover; /* important to cover dimensions  */
+  background-position: center center;
+  /* for different phones */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+  display: table;
+  z-index: -1;
+  top: 64px;
+  left: 0;
+}
+.dark {
+  background-color: rgba(0, 0 , 0, .4);
+  padding: 5rem 0;
+  z-index:1000;
+  height: 100%;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
