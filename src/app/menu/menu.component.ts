@@ -14,8 +14,12 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateToTop5Leagues(competitionId: number): void {
-    this.router.navigate(['top5-league'], {queryParams: {competitionId}});
+  navigateToTop5Leagues(leagueId: number): void {
+    this.router.navigate(['top5-league'], {queryParams: {league_id: leagueId}});
+  }
+
+  navigateToLeagueTeams(leagueId: number): void {
+    this.router.navigate(['teams'], {queryParams: {league_id: leagueId}});
   }
 
 }

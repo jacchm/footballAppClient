@@ -18,7 +18,7 @@ export class Top5LeaguesComponent implements OnInit {
   activeCompetitionNo: number;
 
   constructor(private dataService: DataService,
-              private  router: Router,
+              private router: Router,
               private route: ActivatedRoute) {
   }
 
@@ -29,7 +29,7 @@ export class Top5LeaguesComponent implements OnInit {
   processUrlParams(): void {
     this.route.queryParams.subscribe(
       (params) => {
-        this.activeCompetitionNo = params['competitionId'];
+        this.activeCompetitionNo = params['league_id'];
         this.backgroundImageURL = 'url(../assets/img/' + this.activeCompetitionNo + '_motive.jpg';
         this.loadData('total');
       });

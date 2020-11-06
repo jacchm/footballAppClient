@@ -17,7 +17,7 @@
           <a href="/home" class="nav-link">Home</a> <!-- Welcome to football app -->
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+          <a class="nav-link dropdown-toggle" href="#" id="navDrop1" role="button"
              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Top&nbsp;5&nbsp;Leagues
           </a>
@@ -29,11 +29,21 @@
             <a class="dropdown-item" (click)="navigateToTop5Leagues(2015)">League&nbsp;1</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a href="/champions-league" class="nav-link" routerLinkActive="active">Champions&nbsp;League</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navDrop2" role="button"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Teams
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" (click)="navigateToLeagueTeams(2021)">Premier&nbsp;League</a>
+            <a class="dropdown-item" (click)="navigateToLeagueTeams(2002)">Bundesliga</a>
+            <a class="dropdown-item" (click)="navigateToLeagueTeams(2014)">La&nbsp;Liga</a>
+            <a class="dropdown-item" (click)="navigateToLeagueTeams(2019)">Serie&nbsp;A</a>
+            <a class="dropdown-item" (click)="navigateToLeagueTeams(2015)">League&nbsp;1</a>
+          </div>
         </li>
         <li class="nav-item">
-          <a href="/europa-league" class="nav-link" routerLinkActive="active">Europa&nbsp;League</a>
+          <a href="/admin" class="nav-link" routerLinkActive="active">Admin</a>
         </li>
 
       </ul>

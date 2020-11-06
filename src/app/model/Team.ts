@@ -30,7 +30,7 @@ export class Team {
     newTeam.website = team.website;
     newTeam.email = team.email;
     newTeam.founded = team.founded;
-    newTeam.clubColors = team.founded;
+    newTeam.clubColors = team.clubColors;
     newTeam.venue = team.venue;
     newTeam.lastUpdated = team.lastUpdated;
     return newTeam;

@@ -4,8 +4,7 @@
     <!-- If no Results -->
     <h3 class="m-5" style="color: white" *ngIf="leagueTablePositionList.length === 0">{{message}}</h3>
 
-    <!-- If no Results -->
-    <div class="container" *ngIf="leagueTablePositionList.length > 0">
+    <div class="container" *ngIf="leagueTablePositionList.length > 0"><!-- If no Results -->
       <div class="py-1 text-right">
         <row>
         <button type="button" class="btn btn-light mr-1" (click)="loadData('total')">TOTAL</button>
@@ -18,14 +17,16 @@
           <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col" colspan="2">Team</th>
+            <th scope="col"></th>
+            <th class="s-lg-none text-left" scope="col">Team</th>
+            <th class="d-lg-none text-left" scope="col">Team</th>
             <th scope="col">Games Played</th>
             <th scope="col">Points</th>
-            <th scope="col">Won</th>
-            <th scope="col">Draw</th>
-            <th scope="col">Lost</th>
-            <th scope="col">Goals Scored</th>
-            <th scope="col">Goals Conceded</th>
+            <th class="s-lg-none" scope="col">Won</th>
+            <th class="s-lg-none" scope="col">Draw</th>
+            <th class="s-lg-none" scope="col">Lost</th>
+            <th class="s-lg-none" scope="col">Goals Scored</th>
+            <th class="s-lg-none" scope="col">Goals Conceded</th>
             <th scope="col">Goals Ratio</th>
           </tr>
           </thead>
@@ -33,14 +34,15 @@
           <tr>
             <th scope="row">{{tableRow.position}}</th>
             <td style="width: 80px"><img src="{{tableRow.team.crestUrl}}" class=""></td>
-            <td style="text-align: left">{{tableRow.team.name}}</td>
+            <td class="s-lg-none" style="text-align: left">{{tableRow.team.name}}</td>
+            <td class="d-lg-none" style="text-align: left">{{tableRow.team.shortName}}</td>
             <td>{{tableRow.playedGames}}</td>
-            <td class="font-weight-bold">{{tableRow.points}}</td>
-            <td>{{tableRow.won}}</td>
-            <td>{{tableRow.draw}}</td>
-            <td>{{tableRow.lost}}</td>
-            <td>{{tableRow.goalsFor}}</td>
-            <td>{{tableRow.goalsAgainst}}</td>
+            <th>{{tableRow.points}}</th>
+            <td class="s-lg-none">{{tableRow.won}}</td>
+            <td class="s-lg-none">{{tableRow.draw}}</td>
+            <td class="s-lg-none">{{tableRow.lost}}</td>
+            <td class="s-lg-none">{{tableRow.goalsFor}}</td>
+            <td class="s-lg-none">{{tableRow.goalsAgainst}}</td>
             <td>{{tableRow.goalDifference}}</td>
           </tr>
           </tbody>
@@ -48,22 +50,6 @@
       </div>
 
     </div>
-
-<!--    <div>
-      <h1> Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
-        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
-        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
-        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
-        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
-        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
-        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
-        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
-        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
-        Some very stupid text. Copy and paste. Paste and copy. Some very stupid text. Copy and paste. Paste and copy.
-      </h1>
-
-    </div>-->
-
 
   </div> <!-- End Fixed -->
 
