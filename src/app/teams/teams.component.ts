@@ -15,11 +15,12 @@ export class TeamsComponent implements OnInit {
               private route: ActivatedRoute) {
   }
 
-  teamsList = new Array<Team>();
+  teamsList: Array<Team>;
   selectedTeam: Team = new Team();
-  selectedTeamCrest = 'none';
 
-  message = '';
+  serverConnectionError = false;
+  noDataMsg = 'There is no data.';
+  errorMsg = 'Error encountered connecting to the server.';
   backgroundImageURL: string;
 
   activeCompetitionNo: number;
@@ -33,32 +34,25 @@ export class TeamsComponent implements OnInit {
     this.route.queryParams.subscribe(
       (params) => {
         this.activeCompetitionNo = params['league_id'];
-        this.backgroundImageURL = 'url(../assets/img/' + this.activeCompetitionNo + '_motive.jpg';
+        this.backgroundImageURL = `url(../assets/img/${this.activeCompetitionNo}_motive.jpg`;
         this.loadData();
       });
   }
 
   loadData(): void {
-    this.message = '';
-    console.log(this.activeCompetitionNo);
+    this.serverConnectionError = false;
     this.dataService.getLeagueTeams(this.activeCompetitionNo).subscribe(
       input => {
         this.teamsList = input;
-        if (this.teamsList.length === 0) {
-          this.message = 'There is no data for this particular league.';
-        }
       },
       error => {
-        this.message = 'Error connecting to the server. Try again later.';
-        this.teamsList = [];
+        this.serverConnectionError = true;
       }
     );
   }
 
   setSelectedTeam(team: Team): void {
     this.selectedTeam = team;
-    this.selectedTeamCrest = this.selectedTeam.crestUrl;
-    console.log(this.selectedTeamCrest);
   }
 
 }

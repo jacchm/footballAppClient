@@ -8,21 +8,21 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import {far} from '@fortawesome/free-regular-svg-icons';
 import {fas} from '@fortawesome/free-solid-svg-icons';
-import { Top5LeaguesComponent } from './top5-leagues/top5-leagues.component';
+import { LeagueComponent } from './league/league.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { TeamsComponent } from './teams/teams.component';
-import { AdminComponent } from './admin/admin.component';
+import { AdminPanelComponent } from './admin/admin-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     PageNotFoundComponent,
-    Top5LeaguesComponent,
+    LeagueComponent,
     HomeComponent,
     TeamsComponent,
-    AdminComponent
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,

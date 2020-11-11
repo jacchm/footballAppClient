@@ -40,7 +40,7 @@
 }
 /* ----- TABLE -----*/
 .table {
-  background-color: rgba(255, 255, 255, .6);
+  background-color: rgba(255, 255, 255, .75);
   text-align: center;
 }
 .table td, .table th {
@@ -50,7 +50,13 @@
 .table img {
   width: 30px;
 }
-
+button:focus {
+  outline: none;
+  /* compatibility reasons - remove inherent styling from element */
+  -webkit-appearance: none;
+  /* good experience - just in case */
+  box-shadow: none;
+}
 /* */
 @media screen and (max-width: 991.98px) {
   .s-lg-none {

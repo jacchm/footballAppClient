@@ -1,0 +1,16 @@
+/* Devices under 768px (md) */
+.myAllert {
+  background-color: yellow;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 767.98px) {
+  .myAllert h1 {
+    font-size: 2rem;
+    letter-spacing: .15rem;
+    padding-bottom: .5rem;
+  }
+}

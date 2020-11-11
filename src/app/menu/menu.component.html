@@ -1,20 +1,19 @@
 <nav class="navbar navbar-expand-lg fixed-top solid offset">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/home"><img src="../../assets/img/logo.png" alt=""></a>
+    <a class="navbar-brand" routerLink="/home"><img src="../../assets/img/logo.png" alt=""></a>
 
-    <!-- Hamburger button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarResponsive">
-      <span class="custom-toggler-icon"><fa-icon class="burgerIcon" [icon]="['fas', 'bars']">
-      </fa-icon></span>
+      <span class="custom-toggler-icon">
+        <fa-icon class="burgerIcon" [icon]="['fas', 'bars']"></fa-icon>
+      </span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
-<!--      <fa-icon [icon]="['far', 'futbol']" style="color: white; font-size: 1rem"></fa-icon>-->
       <ul class="navbar-nav ml-auto">
 
         <li class="nav-item">
-          <a href="/home" class="nav-link">Home</a> <!-- Welcome to football app -->
+          <a routerLink="/home" routerLinkActive="active" class="nav-link">Home</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navDrop1" role="button"
@@ -22,33 +21,27 @@
             Top&nbsp;5&nbsp;Leagues
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" (click)="navigateToTop5Leagues(2021)">Premier&nbsp;League</a>
-            <a class="dropdown-item" (click)="navigateToTop5Leagues(2002)">Bundesliga</a>
-            <a class="dropdown-item" (click)="navigateToTop5Leagues(2014)">La&nbsp;Liga</a>
-            <a class="dropdown-item" (click)="navigateToTop5Leagues(2019)">Serie&nbsp;A</a>
-            <a class="dropdown-item" (click)="navigateToTop5Leagues(2015)">League&nbsp;1</a>
+            <div *ngFor="let league of listOfLeagues">
+              <a class="dropdown-item" (click)="navigateToLeague(league.id)">{{league.name}}</a>
+            </div>
           </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navDrop2" role="button"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Teams
-          </a>
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Teams</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" (click)="navigateToLeagueTeams(2021)">Premier&nbsp;League</a>
-            <a class="dropdown-item" (click)="navigateToLeagueTeams(2002)">Bundesliga</a>
-            <a class="dropdown-item" (click)="navigateToLeagueTeams(2014)">La&nbsp;Liga</a>
-            <a class="dropdown-item" (click)="navigateToLeagueTeams(2019)">Serie&nbsp;A</a>
-            <a class="dropdown-item" (click)="navigateToLeagueTeams(2015)">League&nbsp;1</a>
+            <div *ngFor="let league of listOfLeagues">
+              <a class="dropdown-item" (click)="navigateToLeagueTeams(league.id)">{{league.name}}</a>
+            </div>
           </div>
         </li>
         <li class="nav-item">
-          <a href="/admin" class="nav-link" routerLinkActive="active">Admin</a>
+          <a routerLink="/admin" routerLinkActive="active" class="nav-link">Admin&nbsp;Panel</a>
         </li>
 
       </ul>
-    </div> <!-- End Collapse -->
+    </div>
 
-  </div> <!-- End Container Fluid -->
+  </div>
 
 </nav>

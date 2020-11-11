@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Top5LeaguesComponent } from './top5-leagues.component';
+import { AdminPanelComponent } from './admin-panel.component';
 
-describe('Top5LeaguesComponent', () => {
-  let component: Top5LeaguesComponent;
-  let fixture: ComponentFixture<Top5LeaguesComponent>;
+describe('AdminComponent', () => {
+  let component: AdminPanelComponent;
+  let fixture: ComponentFixture<AdminPanelComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Top5LeaguesComponent ]
+      declarations: [ AdminPanelComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Top5LeaguesComponent);
+    fixture = TestBed.createComponent(AdminPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
