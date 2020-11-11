@@ -1,0 +1,52 @@
+<div class="container-fluid text-uppercase dark">
+  <div class="fixed">
+    <div class="container">
+
+      <h3 class="m-5 justify-content-center text-center" style="color: white" *ngIf="teamsList != null && teamsList.length === 0">
+        {{noDataMsg}}</h3>
+      <h3 class="m-5 justify-content-center alert alert-danger text-center" *ngIf="serverConnectionError">
+        {{errorMsg}}</h3>
+
+      <div class="row justify-content-center" *ngIf="teamsList != null">
+        <div *ngFor="let team of teamsList" class="col-md-4 col-sm-6 py-3 equal">
+          <img (click)="setSelectedTeam(team)" data-toggle="modal" data-target="#teamModal" src="{{team.crestUrl}}">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Team Details:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-uppercase">
+        <a><img class="p-3" [src]="selectedTeam.crestUrl"></a>
+        <p><b>full name:</b> {{selectedTeam.name}}</p>
+        <p><b>short name:</b> {{selectedTeam.shortName}}</p>
+        <p><b>abbreviation:</b> {{selectedTeam.tla}}</p>
+        <p><b>address:</b> {{selectedTeam.address}}</p>
+        <p><b>phone:</b> {{selectedTeam.phone}}</p>
+        <p><b>website:</b>{{selectedTeam.website}}</p>
+        <p><b>email:</b> {{selectedTeam.email}}</p>
+        <p><b>founded:</b> {{selectedTeam.founded}}</p>
+        <p><b>club Colors:</b> {{selectedTeam.clubColors}}</p>
+        <p><b>venue:</b> {{selectedTeam.venue}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="fixed-wrap">
+  <div class="fixed-dark" [style.background-image]="backgroundImageURL"></div>
+</div>

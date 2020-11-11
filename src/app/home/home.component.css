@@ -31,7 +31,7 @@
   left: 0;
 }
 .dark {
-  background-color: rgba(0, 0 , 0, .4);
+  background-color: rgba(0, 0 , 0, .3);
   padding: 5rem 0;
   z-index:1000;
   height: 100%;
@@ -39,4 +39,54 @@
   height: 100%;
   width: 100%;
   overflow-y: auto;
+}
+/*-- Landing Page Caption --*/
+.caption {
+  z-index: 1001;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  color: white;
+  padding: 0 5rem;
+}
+.caption h1 {
+  font-size: 4.5rem;
+  letter-spacing: .3rem;
+  text-shadow: .1rem .1rem .8rem black;
+  padding-bottom: 1rem;
+}
+.caption h3 {
+  font-size: 2.5rem;
+  text-shadow: .1rem .1rem .5rem black;
+  padding-bottom: 2rem;
+}
+
+/*============= MEDIA QUERIES =============*/
+
+/* Devices under 992px (lg) */
+@media (max-width: 991.98px) {
+  .caption h1 {
+    font-size: 3.5rem;
+    letter-spacing: .2rem;
+    padding-bottom: .8rem;
+  }
+  .caption h3 {
+    font-size: 2.2rem;
+    padding-bottom: 1.7rem;
+  }
+}
+
+/* Devices under 768px (md) */
+@media (max-width: 767.98px) {
+  .caption h1 {
+    font-size: 2.7rem;
+    letter-spacing: .15rem;
+    padding-bottom: .5rem;
+  }
+  .caption h3 {
+    font-size: 1.7rem;
+    padding-bottom: 1.2rem;
+  }
 }

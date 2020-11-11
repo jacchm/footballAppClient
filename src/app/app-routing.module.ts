@@ -1,17 +1,18 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {ChampionsLeagueComponent} from './champions-league/champions-league.component';
-import {EuropaLeagueComponent} from './europa-league/europa-league.component';
-import {Top5LeaguesComponent} from './top5-leagues/top5-leagues.component';
+import {LeagueComponent} from './league/league.component';
 import {HomeComponent} from './home/home.component';
+import {TeamsComponent} from './teams/teams.component';
+import {AdminPanelComponent} from './admin/admin-panel.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'champions-league', component: ChampionsLeagueComponent},
-  {path: 'europa-league', component: EuropaLeagueComponent},
-  {path: 'top5-league', component: Top5LeaguesComponent},
+  {path: 'teams', component: TeamsComponent},
+  {path: 'admin', component: AdminPanelComponent},
+  {path: 'league', component: LeagueComponent},
   {path: '404', component: PageNotFoundComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/404'}
 ];
 

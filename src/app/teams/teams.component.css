@@ -1,0 +1,75 @@
+.fixed {
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  /* display: table; */
+}
+
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0); /*(right, bot, top, left)*/
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /* fill all corners on each device */
+  top: 0;
+  left: 0;
+  z-index: -9999;
+}
+
+.fixed-dark {
+  /* position: relative; -- to scroll the image */
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-size: cover; /* important to cover dimensions  */
+  background-position: center center;
+  /* for different phones */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+  display: table;
+  z-index: -1;
+  top: 64px;
+  left: 0;
+}
+
+.dark {
+  background-color: rgba(255, 255, 255, .05);
+  padding: 5rem 0;
+  z-index: 1000;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* crests settings */
+div img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  height: auto;
+
+  vert-align: middle;
+}
+
+div img:hover {
+  cursor: pointer;
+}
+
+/* same height of divs of row */
+.equal {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+}
+.modal-body {
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+.modal-body img {
+  width: 150px;
+  height: auto;
+}
+

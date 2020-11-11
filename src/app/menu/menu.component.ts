@@ -1,5 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
+import {DataService} from '../data.service';
+import {SupportedLeague} from '../model/SupportedLeague';
+import {UserSelectedService} from '../user-selected.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,14 +11,26 @@ import {Router} from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private router: Router) {
+  listOfLeagues = new Array<SupportedLeague>();
+
+  constructor(private router: Router,
+              private dataService: DataService,
+              private activatedService: UserSelectedService) {
   }
 
   ngOnInit(): void {
+    this.listOfLeagues = this.dataService.listOfLeagues;
   }
 
-  navigateToTop5Leagues(competitionId: number): void {
-    this.router.navigate(['top5-league'], {queryParams: {competitionId}});
+  navigateToLeague(leagueId: number): void {
+    // TODO: implement userSelected
+    this.activatedService.activeLeagueSet(leagueId);
+    this.router.navigate(['league'], {queryParams: {league_id: leagueId}});
+  }
+
+  navigateToLeagueTeams(leagueId: number): void {
+    this.activatedService.activeLeagueSet(leagueId);
+    this.router.navigate(['teams'], {queryParams: {league_id: leagueId}});
   }
 
 }
