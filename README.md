@@ -1,27 +1,26 @@
-# FootballAppClient
+# FootballApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+## Brief description:
 
-## Development server
+Frontend code for web application which allows to find football league results for top European leagues and basic information about participating teams. All information are gathered through connection with external API. Application is connected to the server which collects all the information needed.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Technologies used:
 
-## Code scaffolding
+- Angular,
+- TypeScript,
+- Bootstrap,
+- CSS,
+- HTML.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## **Development plan:**
 
-## Build
+- model and external API change, to make the data gathered more adjusted to application;
+- implementation of unit tests with use of JUNIT5 and Mockito;
+- implementation of Admin Panel functionality and view;
+- implementation of User Functionality (dashboard, personal views);
+- migration from Bootstrap to Angular Material.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## **Development plan:**
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+See also backend code: https://github.com/jacchm/footballApp
+Working version of FootballApp can be found on https://jacchm-football-application.herokuapp.com/
