@@ -36,8 +36,6 @@ export class LeagueComponent implements OnInit {
         this.activeCompetitionId = params['league_id'];
         this.backgroundImageURL = `url(../assets/img/${this.activeCompetitionId}_motive.jpg`;
         this.loadData('TOTAL');
-        console.log(this.leagueTablePositionList);
-        console.log(this.serverConnectionError);
       });
   }
 

@@ -4,6 +4,7 @@ import {SupportedLeague} from './model/SupportedLeague';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Team} from './model/Team';
+import {environment} from '../environments/environment.prod';
 
 
 @Injectable({
@@ -12,13 +13,15 @@ import {Team} from './model/Team';
 export class DataService {
 
   listOfLeagues = new Array<SupportedLeague>();
+  herokuUrl = environment.restUrl;
 
   getLeagueTableResultsOfType(competitionId: number, type: string): Observable<Array<LeagueTablePosition>> {
-    return this.http.get<Array<LeagueTablePosition>>(`/api/results/league-results?league_id=${competitionId}&type=${type}`);
+    return this.http.get<Array<LeagueTablePosition>>(
+      `${this.herokuUrl}/api/results/league-results?league_id=${competitionId}&type=${type}`);
   }
 
   getLeagueTeams(competitionId: number): Observable<Array<Team>> {
-    return this.http.get<Array<Team>>(`/api/teams/league-teams?league_id=${competitionId}`);
+    return this.http.get<Array<Team>>(`${this.herokuUrl}/api/teams/league-teams?league_id=${competitionId}`);
   }
 
   constructor(private http: HttpClient) {

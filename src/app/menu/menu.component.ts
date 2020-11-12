@@ -23,12 +23,13 @@ export class MenuComponent implements OnInit {
   }
 
   navigateToLeague(leagueId: number): void {
-    // TODO: implement userSelected
+    // TODO: implement userSelected Service instead of routing in the future
     this.activatedService.activeLeagueSet(leagueId);
     this.router.navigate(['league'], {queryParams: {league_id: leagueId}});
   }
 
   navigateToLeagueTeams(leagueId: number): void {
+    // TODO: implement userSelected Service instead of routing in the future
     this.activatedService.activeLeagueSet(leagueId);
     this.router.navigate(['teams'], {queryParams: {league_id: leagueId}});
   }

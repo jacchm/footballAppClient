@@ -90,3 +90,17 @@
     padding-bottom: 1.2rem;
   }
 }
+@media (max-width: 575.98px) {
+  .caption {
+    top: 30%;
+  }
+  .caption h1 {
+    font-size: 1.9rem;
+    letter-spacing: .1rem;
+    padding-bottom: .4rem;
+  }
+  .caption h3 {
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+  }
+}

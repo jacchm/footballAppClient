@@ -22,14 +22,14 @@
             <th scope="col"></th>
             <th class="s-lg-none text-left" scope="col">Team</th>
             <th class="d-lg-none text-left" scope="col">Team</th>
-            <th scope="col">Games Played</th>
+            <th class="s-sm-none" scope="col">Games Played</th>
             <th scope="col">Points</th>
             <th class="s-lg-none" scope="col">Won</th>
             <th class="s-lg-none" scope="col">Draw</th>
             <th class="s-lg-none" scope="col">Lost</th>
             <th class="s-lg-none" scope="col">Goals Scored</th>
             <th class="s-lg-none" scope="col">Goals Conceded</th>
-            <th scope="col">Goals Ratio</th>
+            <th class="s-sm-none" scope="col">Goals Ratio</th>
           </tr>
           </thead>
           <tbody *ngFor="let tableRow of leagueTablePositionList">
@@ -38,14 +38,14 @@
             <td style="width: 80px"><img src="{{tableRow.team.crestUrl}}" class=""></td>
             <td class="s-lg-none" style="text-align: left">{{tableRow.team.name}}</td>
             <td class="d-lg-none" style="text-align: left">{{tableRow.team.shortName}}</td>
-            <td>{{tableRow.playedGames}}</td>
+            <td class="s-sm-none">{{tableRow.playedGames}}</td>
             <th>{{tableRow.points}}</th>
             <td class="s-lg-none">{{tableRow.won}}</td>
             <td class="s-lg-none">{{tableRow.draw}}</td>
             <td class="s-lg-none">{{tableRow.lost}}</td>
             <td class="s-lg-none">{{tableRow.goalsFor}}</td>
             <td class="s-lg-none">{{tableRow.goalsAgainst}}</td>
-            <td>{{tableRow.goalDifference}}</td>
+            <td class="s-sm-none">{{tableRow.goalDifference}}</td>
           </tr>
           </tbody>
         </table>
